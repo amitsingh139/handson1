@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Category Search</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            width: 400px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .search-container:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 26px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+            color: #555;
+            font-weight: 600;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <h2>Search for Products by Category</h2>
+
+    <!-- Dropdown (Single select) -->
+    <label for="mainCategory">Main Category:</label>
+    <select id="mainCategory">
+        <option value="">--Select a Main Category--</option>
+        <option value="shoes">Shoes</option>
+        <option value="jackets">Jackets</option>
+        <option value="watches">Watches</option>
+        <option value="bags">Bags</option>
+    </select>
+
+    <!-- Another Dropdown (Single select) -->
+    <label for="subCategory">Sub Category:</label>
+    <select id="subCategory">
+        <option value="">--Select a Sub Category--</option>
+        <option value="sports">Sports</option>
+        <option value="casual">Casual</option>
+        <option value="formal">Formal</option>
+        <option value="luxury">Luxury</option>
+    </select>
+
+    <button onclick="searchProducts()">Search</button>
+</div>
+
+<script>
+    function searchProducts() {
+        const mainCategory = document.getElementById('mainCategory').value;
+        const subCategory = document.getElementById('subCategory').value;
+
+        if (!mainCategory) {
+            alert('Please select a main category!');
+        } else if (!subCategory) {
+            alert('Please select a sub-category!');
+        } else {
+            // Show alert
+            alert('Searching for ' + mainCategory + ' with sub-category: ' + subCategory);
+            // After OK is clicked, redirect
+            window.location.href = 'purchase-book.html';  // Replace with your actual purchase page path
+        }
+    }
+</script>
+
+</body>
+</html>
